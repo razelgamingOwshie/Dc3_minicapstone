@@ -1,0 +1,364 @@
+/* =========================================
+   KINDRED VET CLINIC — PET OWNER PORTAL
+========================================= */
+
+.pet-portal {
+  --pet-bg: #f7f4ee;
+  --pet-card: #ffffff;
+  --pet-text: #342f29;
+  --pet-muted: #82796e;
+  --pet-sage: #526b55;
+  --pet-sage-light: #e4ede2;
+  --pet-border: #e8e1d7;
+
+  min-height: 100vh;
+  width: 100%;
+  padding: 32px;
+  background: var(--pet-bg);
+  color: var(--pet-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.pet-portal *,
+.pet-portal *::before,
+.pet-portal *::after {
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.pet-portal__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.pet-portal__brand-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  background: var(--pet-sage);
+  border-radius: 14px;
+  font-size: 23px;
+}
+
+.pet-portal__brand {
+  flex: 1;
+  min-width: 0;
+}
+
+.pet-portal__brand h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.pet-portal__brand p {
+  margin: 5px 0 0;
+  color: var(--pet-muted);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.4px;
+}
+
+.pet-portal__divider {
+  height: 1px;
+  margin-bottom: 30px;
+  background: var(--pet-border);
+}
+
+/* Greeting */
+
+.pet-portal__intro {
+  margin-bottom: 28px;
+}
+
+.pet-portal__eyebrow {
+  margin: 0 0 10px;
+  color: var(--pet-sage);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.pet-portal__greeting {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.pet-portal__subtitle {
+  margin: 10px 0 0;
+  color: var(--pet-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Welcome panel */
+
+.pet-portal__welcome {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding: 25px;
+  background: #e7ede3;
+  border: 1px solid #dce5d7;
+  border-radius: 20px;
+}
+
+.pet-portal__welcome-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  color: var(--pet-sage);
+  border-radius: 16px;
+  font-size: 25px;
+}
+
+.pet-portal__welcome h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.pet-portal__welcome p {
+  margin: 7px 0 0;
+  color: #625f55;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Navigation heading */
+
+.pet-portal__section-heading {
+  margin: 0 0 17px;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+/* Navigation cards */
+
+.pet-portal__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pet-portal__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 205px;
+  padding: 23px;
+  color: inherit;
+  text-decoration: none;
+  background: var(--pet-card);
+  border: 1px solid var(--pet-border);
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(52, 47, 41, 0.035);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.pet-portal__card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd8c6;
+  box-shadow: 0 12px 28px rgba(52, 47, 41, 0.08);
+}
+
+.pet-portal__card:focus-visible {
+  outline: 3px solid var(--pet-sage);
+  outline-offset: 4px;
+}
+
+.pet-portal__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.pet-portal__card-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: var(--pet-sage);
+  background: var(--pet-sage-light);
+  font-size: 22px;
+}
+
+.pet-portal__card-arrow {
+  color: #999186;
+  font-size: 19px;
+  transition: transform 180ms ease;
+}
+
+.pet-portal__card:hover .pet-portal__card-arrow {
+  transform: translate(3px, -3px);
+}
+
+.pet-portal__card-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750
+  line-height: 1.4;
+}
+
+.pet-portal__card-description {
+  margin: 7px 0 0;
+  color: var(--pet-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pet-portal__card-action {
+  margin-top: auto;
+  padding-top: 19px;
+  color: var(--pet-sage);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* Individual icon colors */
+
+.pet-portal__card--appointments .pet-portal__card-icon {
+  color: #a76e35;
+  background: #f8ead8;
+}
+
+.pet-portal__card--services .pet-portal__card-icon {
+  color: #54749a;
+  background: #e4eaf3;
+}
+
+.pet-portal__card--records .pet-portal__card-icon {
+  color: #a4574c;
+  background: #f5e3e0;
+}
+
+.pet-portal__card--vaccinations .pet-portal__card-icon {
+  color: #92723b;
+  background: #f4ebd5;
+}
+
+.pet-portal__card--overview .pet-portal__card-icon {
+  color: #80649a;
+  background: #ede6f4;
+}
+
+/* Loading / empty states */
+
+.pet-portal__empty {
+  padding: 22px;
+  color: var(--pet-muted);
+  background: #fff;
+  border: 1px dashed var(--pet-border);
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .pet-portal__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .pet-portal {
+    padding: 20px 15px;
+  }
+
+  .pet-portal__header {
+    margin-bottom: 23px;
+  }
+
+  .pet-portal__brand h2 {
+    font-size: 17px;
+  }
+
+  .pet-portal__intro {
+    margin-bottom: 23px;
+  }
+
+  .pet-portal__greeting {
+    font-size: 28px;
+  }
+
+  .pet-portal__subtitle {
+    font-size: 14px;
+  }
+
+  .pet-portal__welcome {
+    align-items: flex-start;
+    gap: 13px;
+    padding: 19px;
+    margin-bottom: 26px;
+  }
+
+  .pet-portal__welcome-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 21px;
+  }
+
+  .pet-portal__welcome h2 {
+    font-size: 17px;
+  }
+
+  .pet-portal__welcome p {
+    font-size: 13px;
+  }
+
+  .pet-portal__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pet-portal__card {
+    min-height: 0;
+    padding: 19px;
+  }
+
+  .pet-portal__card-top {
+    margin-bottom: 16px;
+  }
+
+  .pet-portal__card-action {
+    padding-top: 14px;
+  }
+}
+
+/* Motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-portal *,
+  .pet-portal *::before,
+  .pet-portal *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

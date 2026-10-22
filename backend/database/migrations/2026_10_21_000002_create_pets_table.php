@@ -1,0 +1,3 @@
+<?php
+use Illuminate\Database\Migrations\Migration;use Illuminate\Database\Schema\Blueprint;use Illuminate\Support\Facades\Schema;
+return new class extends Migration {public function up():void{Schema::create('pets',function(Blueprint $t){$t->id();$t->foreignId('user_id')->constrained()->cascadeOnDelete();$t->string('name',120);$t->string('species',60);$t->string('breed',100)->nullable();$t->string('sex',20)->nullable();$t->date('birth_date')->nullable();$t->decimal('weight',7,2)->nullable();$t->text('notes')->nullable();$t->timestamps();$t->index(['name','species']);});}public function down():void{Schema::dropIfExists('pets');}};

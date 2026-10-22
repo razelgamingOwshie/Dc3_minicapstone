@@ -1,0 +1,4 @@
+<?php
+namespace Tests\Feature;
+use Tests\TestCase;use Illuminate\Foundation\Testing\RefreshDatabase;use App\Models\User;
+class AuthenticationTest extends TestCase {use RefreshDatabase;public function test_registration_always_creates_pet_owner():void {$r=$this->postJson('/api/register',['name'=>'Test Owner','email'=>'owner@example.test','password'=>'Password123!','password_confirmation'=>'Password123!','role'=>'admin']);$r->assertCreated()->assertJsonPath('user.role','pet_owner');}public function test_dashboard_requires_authentication():void {$this->getJson('/api/dashboard')->assertUnauthorized();}public function test_owner_cannot_access_dashboard():void {$u=User::create(['name'=>'Owner','email'=>'owner@example.test','password'=>bcrypt('Password123!'),'role'=>'pet_owner']);$this->actingAs($u)->getJson('/api/dashboard')->assertForbidden();}}

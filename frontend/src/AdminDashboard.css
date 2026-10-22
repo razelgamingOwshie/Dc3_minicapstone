@@ -1,0 +1,571 @@
+/* =========================================
+   KINDRED VET CLINIC — ADMIN DASHBOARD
+   Theme: Warm Cream, Sage & Espresso
+========================================= */
+
+:root {
+  --clinic-bg: #f7f4ee;
+  --clinic-card: #ffffff;
+  --clinic-sage: #526b55;
+  --clinic-sage-light: #e4ede2;
+  --clinic-espresso: #342f29;
+  --clinic-muted: #82796e;
+  --clinic-border: #e8e1d7;
+  --clinic-terracotta: #a4574c;
+  --clinic-terracotta-light: #f5e3e0;
+  --clinic-blue: #54749a;
+  --clinic-blue-light: #e4eaf3;
+  --clinic-amber: #a76e35;
+  --clinic-amber-light: #f8ead8;
+  --clinic-radius: 18px;
+  --clinic-shadow: 0 4px 18px rgba(52, 47, 41, 0.045);
+  --clinic-shadow-hover: 0 10px 28px rgba(52, 47, 41, 0.09);
+}
+
+/* Main dashboard */
+
+.admin-overview {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 32px;
+  background: var(--clinic-bg);
+  color: var(--clinic-espresso);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.admin-overview *,
+.admin-overview *::before,
+.admin-overview *::after {
+  box-sizing: border-box;
+}
+
+/* Page heading */
+
+.admin-overview__header {
+  margin-bottom: 30px;
+}
+
+.admin-overview__eyebrow {
+  margin: 0 0 10px;
+  color: var(--clinic-sage);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.admin-overview__greeting {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -1.1px;
+}
+
+.admin-overview__subtitle {
+  margin: 10px 0 0;
+  color: var(--clinic-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Statistics grid */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.admin-stat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 205px;
+  padding: 22px 20px 18px;
+  overflow: hidden;
+  background: var(--clinic-card);
+  border: 1px solid var(--clinic-border);
+  border-radius: var(--clinic-radius);
+  box-shadow: var(--clinic-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--clinic-shadow-hover);
+  border-color: #d2ddce;
+}
+
+.admin-stat-card:focus-visible,
+.admin-quick-link:focus-visible {
+  outline: 3px solid var(--clinic-sage);
+  outline-offset: 4px;
+}
+
+.admin-stat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.admin-stat-card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--clinic-sage-light);
+  color: var(--clinic-sage);
+  font-size: 22px;
+}
+
+.admin-stat-card__arrow {
+  color: #a29a8f;
+  font-size: 19px;
+  transition: transform 180ms ease;
+}
+
+.admin-stat-card:hover .admin-stat-card__arrow {
+  transform: translate(2px, -2px);
+}
+
+.admin-stat-card__label {
+  margin: 0 0 8px;
+  color: var(--clinic-muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.admin-stat-card__value {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: clamp(28px, 2.2vw, 36px);
+  font-weight: 750;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-stat-card__link {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--clinic-sage);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* Optional card color variants */
+
+.admin-stat-card--pets .admin-stat-card__icon {
+  color: var(--clinic-sage);
+  background: var(--clinic-sage-light);
+}
+
+.admin-stat-card--appointments .admin-stat-card__icon {
+  color: var(--clinic-amber);
+  background: var(--clinic-amber-light);
+}
+
+.admin-stat-card--pending .admin-stat-card__icon {
+  color: var(--clinic-terracotta);
+  background: var(--clinic-terracotta-light);
+}
+
+.admin-stat-card--completed .admin-stat-card__icon {
+  color: var(--clinic-blue);
+  background: var(--clinic-blue-light);
+}
+
+.admin-stat-card--vaccines .admin-stat-card__icon {
+  color: #92723b;
+  background: #f4ebd5;
+}
+
+/* Shared dashboard panels */
+
+.admin-dashboard-panel {
+  margin-bottom: 26px;
+  padding: 26px;
+  background: var(--clinic-card);
+  border: 1px solid var(--clinic-border);
+  border-radius: var(--clinic-radius);
+  box-shadow: var(--clinic-shadow);
+}
+
+.admin-dashboard-panel__heading {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.admin-dashboard-panel__description {
+  margin: 7px 0 0;
+  color: var(--clinic-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Vaccination attention panel */
+
+.admin-vaccination-panel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: var(--clinic-card);
+  border: 1px solid var(--clinic-border);
+  border-radius: var(--clinic-radius);
+  box-shadow: var(--clinic-shadow);
+}
+
+.admin-vaccination-panel__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  color: #92723b;
+  background: #f4ebd5;
+  font-size: 25px;
+}
+
+.admin-vaccination-panel__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-vaccination-panel__title {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.admin-vaccination-panel__description {
+  margin: 6px 0 0;
+  color: var(--clinic-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-vaccination-panel__count {
+  flex-shrink: 0;
+  color: var(--clinic-espresso);
+  font-size: 30px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-vaccination-panel__status {
+  margin-top: 14px;
+  color: var(--clinic-sage);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Workspace section */
+
+.admin-workspace {
+  padding: 28px;
+  background: #e7ede3;
+  border: 1px solid #dce5d7;
+  border-radius: 22px;
+}
+
+.admin-workspace__header {
+  margin-bottom: 22px;
+}
+
+.admin-workspace__title {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.admin-workspace__description {
+  margin: 8px 0 0;
+  color: #625f55;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.admin-workspace__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-quick-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(82, 107, 85, 0.1);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.admin-quick-link:hover {
+  transform: translateY(-3px);
+  border-color: #bdcdb8;
+  box-shadow: 0 7px 20px rgba(52, 47, 41, 0.07);
+}
+
+.admin-quick-link__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--clinic-sage);
+  background: var(--clinic-sage-light);
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.admin-quick-link__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-quick-link__title {
+  margin: 0;
+  color: var(--clinic-espresso);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.admin-quick-link__description {
+  margin: 5px 0 0;
+  color: var(--clinic-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.admin-quick-link__arrow {
+  flex-shrink: 0;
+  color: #9a958b;
+}
+
+/* Loading state */
+
+.admin-stat-card.is-loading .admin-stat-card__value {
+  width: 65px;
+  height: 35px;
+  border-radius: 7px;
+  color: transparent;
+  background: #f0ede7;
+  animation: clinic-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes clinic-pulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Error and empty states */
+
+.admin-dashboard-error,
+.admin-dashboard-empty {
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.admin-dashboard-error {
+  color: #923f36;
+  background: #f9e9e6;
+  border: 1px solid #efd0ca;
+}
+
+.admin-dashboard-empty {
+  color: #625f55;
+  background: #f7f4ee;
+  border: 1px dashed var(--clinic-border);
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 1200px) {
+  .admin-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-workspace__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Small tablet and large phone */
+
+@media (max-width: 768px) {
+  .admin-overview {
+    padding: 22px 18px;
+  }
+
+  .admin-overview__header {
+    margin-bottom: 24px;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .admin-stat-card {
+    min-height: 185px;
+    padding: 17px;
+  }
+
+  .admin-stat-card__top {
+    margin-bottom: 20px;
+  }
+
+  .admin-stat-card__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .admin-dashboard-panel,
+  .admin-workspace {
+    padding: 21px;
+  }
+
+  .admin-vaccination-panel {
+    padding: 19px;
+    gap: 13px;
+  }
+
+  .admin-workspace__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .admin-overview {
+    padding: 18px 13px;
+  }
+
+  .admin-overview__greeting {
+    font-size: 27px;
+    letter-spacing: -0.7px;
+  }
+
+  .admin-overview__subtitle {
+    font-size: 14px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .admin-stat-card {
+    min-height: 0;
+    padding: 19px;
+  }
+
+  .admin-stat-card__top {
+    margin-bottom: 15px;
+  }
+
+  .admin-stat-card__value {
+    font-size: 32px;
+  }
+
+  .admin-stat-card__link {
+    padding-top: 14px;
+  }
+
+  .admin-dashboard-panel,
+  .admin-workspace {
+    padding: 17px;
+    border-radius: 16px;
+  }
+
+  .admin-dashboard-panel__heading,
+  .admin-workspace__title {
+    font-size: 19px;
+  }
+
+  .admin-vaccination-panel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 17px;
+    gap: 12px;
+  }
+
+  .admin-vaccination-panel__icon {
+    width: 43px;
+    height: 43px;
+    font-size: 21px;
+  }
+
+  .admin-vaccination-panel__title {
+    font-size: 14px;
+  }
+
+  .admin-vaccination-panel__description {
+    font-size: 12px;
+  }
+
+  .admin-vaccination-panel__count {
+    font-size: 25px;
+  }
+
+  .admin-quick-link {
+    padding: 15px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-overview *,
+  .admin-overview *::before,
+  .admin-overview *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
